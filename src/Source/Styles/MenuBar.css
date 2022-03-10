@@ -1,0 +1,113 @@
+.MenuBar{
+	min-width: 300px;
+	
+	height: 100vh;
+	background: #11192A;
+	position: fixed;
+	
+	
+
+}
+
+.MenuBar__Container{
+	width: 86%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+}
+
+.MenuBar__Container__Logo{
+	width: 78px;
+	height: 37px;
+	margin-top: 13.5px;
+	align-self: flex-start;
+
+}
+
+.MenuBar__Container__Line{
+	width: 100%;
+	height: 1px;
+	background-color: #202738;
+	margin-top: 13.5px;
+}
+
+.MenuBar__Container__Photo{
+	margin-top: 20px;
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+	overflow: hidden;
+	
+}
+
+
+.MenuBar__Container__Photo img{
+	height: 100%;
+	width: 100%;
+}
+
+.MenuBar__Container__FCS{
+	color: white;
+	margin-top: 10px;
+	font-weight: 400;
+	font-size: 18px;
+}
+
+.MenuBar__Container__LineTwo{
+	width: 100%;
+	height: 1px;
+	background-color: #202738;
+	margin-top: 25px;
+}
+
+.MenuBar__Container__Links{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+	
+	
+	
+
+}
+
+.MenuBar__Container__Links li{
+	width: 100%;
+	height: 59px;
+	
+	color: #B8BAC0;
+	font-size: 14px;
+	font-weight: 400;
+	align-items: center;
+	padding-left: 17px;
+	display: flex;
+	align-items: center;
+	
+	
+	
+}
+.MenuBar__Container__Links li span{
+	margin-left: 12px;
+	text-decoration: none;
+}
+
+.MenuBar__Container__Links a :hover{
+	background: #1F2737;
+	border-radius: 8px;
+}
+
+
+.MenuBar__Container__Links__Home{
+ fill: #DADADA;
+}
+
+.MenuBar__Container__Links__Active{
+	color: white !important;
+	fill: white;
+	
+	
+	
+	
+}

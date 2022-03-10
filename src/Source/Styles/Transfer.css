@@ -1,0 +1,44 @@
+.TransferContainer{
+	max-width: 1620px;
+	
+	
+
+}
+
+.TransferContainer__Header{
+	width: 100%;
+	min-height: 220px;
+	background: #F9FAFC;
+	box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.05);
+}
+
+.TransferContainer__Header__Text{
+	padding-left: 40px;
+	padding-top: 40px;
+	white-space: nowrap;
+	
+	
+}
+.TransferContainer__Header__Text span{
+	font-size: 2.22vmin;
+	line-height: 5vmin;
+	color:#223354;
+}
+
+.TransferContainer__DepartmentsContainer{
+	max-width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-right: 40px;
+	
+	
+	
+	
+	
+	
+	
+
+
+}
