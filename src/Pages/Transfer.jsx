@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
 import DepartmentCard from '../Components/DepartmentCard'
 import '../Source/Styles/Transfer.css'
 import { Context } from '../Context'
@@ -7,8 +6,8 @@ import { Context } from '../Context'
 
 
 export default function Transfer(props) {
-	const { currentPage, setCurrentPage } = useContext(Context)
-	setCurrentPage('transfer')
+	const { setCurrentPage } = useContext(Context)
+	useEffect(()=> setCurrentPage('/transfer'),[])
 
 	return (
 
@@ -45,7 +44,10 @@ export default function Transfer(props) {
 				<DepartmentCard />
 				<DepartmentCard />
 				<DepartmentCard />
-
+				
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
 
 			</div>
 
