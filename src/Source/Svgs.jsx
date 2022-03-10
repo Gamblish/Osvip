@@ -37,7 +37,7 @@ export function DeclarationsSvg(props) {
     )
 }
 export function TestsSvg(props) {
-   
+
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path className={props.currentPage === props.to ? "MenuBar__Container__Links__Active" : null} d="M19 3H14.82C14.4 1.84 13.3 1 12 1C10.7 1 9.6 1.84 9.18 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM12 2.75C12.41 2.75 12.75 3.09 12.75 3.5C12.75 3.91 12.41 4.25 12 4.25C11.59 4.25 11.25 3.91 11.25 3.5C11.25 3.09 11.59 2.75 12 2.75ZM9.1 17H7V14.86L12.96 8.9L15.08 11.02L9.1 17ZM16.85 9.27L15.79 10.33L13.67 8.21L14.73 7.15C14.93 6.95 15.24 6.95 15.44 7.15L16.85 8.56C17.05 8.76 17.05 9.07 16.85 9.27Z" fill="#B8BAC0" />
@@ -49,5 +49,26 @@ export function ContactsSvg(props) {
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path className={props.currentPage === props.to ? "MenuBar__Container__Links__Active" : null} fill-rule="evenodd" clip-rule="evenodd" d="M20 0H4V2H20V0ZM20 24V22H4V24H20ZM4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4ZM12 6.75C13.24 6.75 14.25 7.76 14.25 9C14.25 10.24 13.24 11.25 12 11.25C10.76 11.25 9.75 10.24 9.75 9C9.75 7.76 10.76 6.75 12 6.75ZM7 15.5V17H17V15.5C17 13.83 13.67 13 12 13C10.33 13 7 13.83 7 15.5Z" fill="#B8BAC0" />
         </svg>
+    )
+}
+
+export function Plane404Svg() {
+    return (
+
+
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            viewBox="0 0 512 512" xmlSpace="preserve" >
+            <polygon fill='#C9E3F7' points="211.478,144.696 0,278.261 0,356.174 222.609,278.261 " />
+            <g>
+                <polygon fill='#78B9EB' points="300.522,144.696 512,278.261 512,356.174 289.391,278.261 	" />
+                <path fill='#78B9EB' d="M292.263,393.023l19.389-337.371C311.652,24.917,286.736,0,256,0s-55.652,24.917-55.652,55.652
+		l19.389,337.371l-52.781,63.558V512L256,456.348L345.043,512v-55.418L292.263,393.023z"/>
+            </g>
+            <path fill='#3C5D76' d="M292.263,393.023l19.389-337.371C311.652,24.917,286.736,0,256,0v456.348L345.043,512v-55.418
+	L292.263,393.023z"/>
+
+
+        </svg >
+
     )
 }

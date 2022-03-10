@@ -14,6 +14,8 @@ import { ContactsSvg, DeclarationsSvg, HomeSvg, TDirectionSvg, TestsSvg, TRansfe
 
 export default function MenuBar(props) {
 
+	console.log(props.currentPage)
+
 	return (
 
 
@@ -21,7 +23,7 @@ export default function MenuBar(props) {
 
 
 
-		<div className='MenuBar'>
+		<div className={props.currentPage === '*' ? 'MenuBarHidden' : 'MenuBar'}>
 			<div className="MenuBar__Container">
 				<div className="MenuBar__Container__Logo">
 					<svg width="80" height="40" viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,13 +46,13 @@ export default function MenuBar(props) {
 				<div className="MenuBar__Container__LineTwo"></div>
 
 				<ul className="MenuBar__Container__Links">
-					
-				<MenuLink currentPage={props.currentPage} LinkName='Главная' to='/' icon={HomeSvg}/>
-				<MenuLink currentPage={props.currentPage} LinkName='Направление подготовки' to='/tdirection' icon={TDirectionSvg}/>
-				<MenuLink currentPage={props.currentPage} LinkName='Восстановление и перевод' to='/transfer' icon={TRansferSvg}/>
-				<MenuLink currentPage={props.currentPage} LinkName='Заявки' to='/declarations' icon={DeclarationsSvg} />
-				<MenuLink currentPage={props.currentPage} LinkName='Тестирование' to='/tests' icon={TestsSvg}/>	
-				<MenuLink currentPage={props.currentPage} LinkName="Контакты" to='/contacts' icon={ContactsSvg}/>	
+
+					<MenuLink currentPage={props.currentPage} LinkName='Главная' to='/' icon={HomeSvg} />
+					<MenuLink currentPage={props.currentPage} LinkName='Направление подготовки' to='/tdirection' icon={TDirectionSvg} />
+					<MenuLink currentPage={props.currentPage} LinkName='Восстановление и перевод' to='/transfer' icon={TRansferSvg} />
+					<MenuLink currentPage={props.currentPage} LinkName='Заявки' to='/declarations' icon={DeclarationsSvg} />
+					<MenuLink currentPage={props.currentPage} LinkName='Тестирование' to='/tests' icon={TestsSvg} />
+					<MenuLink currentPage={props.currentPage} LinkName="Контакты" to='/contacts' icon={ContactsSvg} />
 
 				</ul>
 

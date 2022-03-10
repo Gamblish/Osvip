@@ -1,0 +1,31 @@
+.LoginContainer{
+	
+	
+	position: fixed;
+	top:22.5%;
+	left: 25%;
+	
+	
+	width: 50vw;
+	background-color: black;
+	height: 55%;
+	
+	border-radius: 30px;
+	filter: blur(0px) !important;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	
+	transform: scale(0);
+	
+	
+
+}
+
+.LoginContainerVisible{
+	
+	transform: scale(1);
+
+
+}

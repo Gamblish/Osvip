@@ -1,8 +1,6 @@
-.MenuBar__Container__Links__Active{
-	color: white;
-	fill: white;
+.App__Page{
 	
-	
-	
-	
+}
+.App__PageBlured{
+	filter: blur(3px);
 }
