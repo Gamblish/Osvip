@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { Context } from '../Context'
 import MenuLink from './MenuLink'
 import { ContactsSvg, DeclarationsSvg, HomeSvg, TDirectionSvg, TestsSvg, TRansferSvg } from '../Source/Svgs'
+import MenuBarProfile from './MenuBarProfile'
 
 
 
@@ -13,8 +14,10 @@ import { ContactsSvg, DeclarationsSvg, HomeSvg, TDirectionSvg, TestsSvg, TRansfe
 
 
 export default function MenuBar(props) {
+	const { store } = useContext(Context)
 
-	console.log(props.currentPage)
+
+
 
 	return (
 
@@ -35,18 +38,10 @@ export default function MenuBar(props) {
 
 				<div className="MenuBar__Container__Line"></div>
 				<div className='MenuBar__Container__UserInfo'>
-					<div className='MenuBar__Container__UserInfo__Photo'>
 
-						<img src={Samolet} alt="" />
-
-
-					</div>
-
-					<div className="MenuBar__Container__UserInfo__FCS">
-						Алан Абдурозов
-					</div>
-
+					{props.Auth ? <MenuBarProfile FCS={props.FCS} /> : <button onClick={() => props.setActive(true)}>Войты</button>}
 				</div>
+
 
 
 				<div className="MenuBar__Container__LineTwo"></div>

@@ -1,6 +1,8 @@
 .App__Page{
-	
+	transition: filter .6s;
 }
 .App__PageBlured{
 	filter: blur(3px);
+	pointer-events: none;
+	
 }

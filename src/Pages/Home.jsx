@@ -11,7 +11,7 @@ export default function Home(props) {
 	useEffect(() => setCurrentPage('/'), [])
 
 	function test() {
-		axios.get('http://192.168.43.127:5870/WeatherForecast').then(response => console.log(response))
+
 
 	}
 
@@ -26,7 +26,7 @@ export default function Home(props) {
 
 			<Link to='/login'>Войти в айти</Link>
 
-			<button onClick={() => props.setActive(true)}>Войты</button>
+
 			<button onClick={() => test()}> asdasdasdsadsa</button>
 
 		</div>

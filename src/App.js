@@ -23,7 +23,8 @@ import NotFound from "./Pages/NotFound";
 import Login from "./Components/Login";
 import './App.css'
 import Store from "./store/Store";
-
+import api from "./http";
+import AuthService from "./services/AuthService";
 
 
 
@@ -34,8 +35,21 @@ function App() {
 
   const [currentPage, setCurrentPage] = useState('/');
   const [modalActive, setModalActive] = useState(false)
-  const store = new Store();
+  const [store, setStore] = useState(new Store())
+  const [Auth, setAuth] = useState(false)
+  const [FCS, setFCS] = useState('')
+  useEffect(() => api.get('http://192.168.43.127:7239/api/Account/UserInfo').then(response => {
+    response.status == 200 ?
+      AuthService.UserData(setAuth, setFCS)
+      : setAuth(false);
+    console.log(response)
 
+  }
+  )
+
+
+    , [])
+  useEffect(() => store.setAuth(Auth), [Auth])
   return (
     <Context.Provider value={{ currentPage, setCurrentPage, store }}>
       <div className="App">
@@ -45,11 +59,11 @@ function App() {
 
           <Router>
 
-            {currentPage == "*" ? null : <MenuBar currentPage={currentPage} />}
+            {currentPage == "*" ? null : <MenuBar FCS={FCS} currentPage={currentPage} active={modalActive} setActive={setModalActive} Auth={Auth} setAuth={setAuth} />}
             <div className={currentPage === '*' ? null : 'PageContainer'} >
               <Routes>
 
-                <Route path='/' element={<Home active={modalActive} setActive={setModalActive} />} />
+                <Route path='/' element={<Home />} />
                 <Route path='/tdirection' element={<TDirection />} />
                 <Route path='/transfer' element={<Transfer />} />
 
@@ -65,7 +79,7 @@ function App() {
 
           </Router>
         </div>
-        <Login Active={modalActive} setActive={setModalActive} />
+        <Login Active={modalActive} UserData={AuthService.UserData} setAuth={setAuth} setFCS={setFCS} setActive={setModalActive} />
 
       </div>
     </Context.Provider>
