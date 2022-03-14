@@ -7,7 +7,7 @@
 	
 	
 	width: 50vw;
-	background-color: black;
+	background-color: #FFF;
 	height: 55%;
 	
 	border-radius: 30px;
@@ -16,6 +16,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	
 	
 	transform: scale(0);
 	
@@ -27,5 +28,30 @@
 	
 	transform: scale(1);
 
+
+}
+
+.LoginContainer__Forms{
+	display: flex;
+	flex-direction: column;
+}
+
+.LoginContainer__Forms__LoginForm{
+	height: 3vw;
+	width: 20vw;
+	background-color: rgb(146, 186, 238);
+	font-size: 20px;
+	
+	
+}
+.LoginContainer__Forms__LoginForm textarea{
+	font-size: 30px;
+}
+
+.LoginContainer__Forms__PassForm{
+	height: 3vw;
+	width: 20vw;
+	background-color: rgb(146, 186, 238);
+	font-size: 35px;
 
 }

@@ -1,38 +1,29 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../Source/Styles/Login.css'
 import Cookies from 'universal-cookie'
+
+import { Context } from '../Context'
 
 
 
 export default function Login(props) {
 	const [password, setPassword] = useState('')
-	const [login, setLogin] = useState('')
+	const [email, setEmail] = useState('')
 	const cookies = new Cookies();
+	const { store } = useContext(Context)
 
-	const handleSubmit = () => {
-		const data = {
-			email: login,
-			password: password,
-			rememberMe: true
-		}
-		axios.defaults.withCredentials = true;
-		axios.post('https://192.168.43.165:7231/api/Account/Login', data, {
-			"Access-Control-Allow-Origin": "*",
-			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
-			"Access-Control-Allow-Headers": ",set-cookie,Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
-
-		}).then((response) => cookies.set("token", response)
-		);
-	}
 
 	return (
 		<div className={props.Active ? ' LoginContainer LoginContainerVisible' : 'LoginContainer'} >
-			<form >
-				<input type="Email" value={login} onChange={e => setLogin(e.target.value)} />
-				<input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+			<form className='LoginContainer__Forms'>
+				<p>Логин</p>
+				<input placeholder='Логин' type="text" value={email} onChange={e => setEmail(e.target.value)} className='LoginContainer__Forms__LoginForm'
+					textarea='font - size: 100px' />
+				<p>Пароль</p>
+				<input placeholder='Пароль' type="password" value={password} onChange={e => setPassword(e.target.value)} className='LoginContainer__Forms__PassForm' />
 
-				<input type="button" onClick={handleSubmit} value="Отправить" />
+				<input type="button" onClick={() => store.login(email, password)} value="Войти" />
 			</form>
 			<button onClick={() => props.setActive(false)}>Х</button>
 		</div >

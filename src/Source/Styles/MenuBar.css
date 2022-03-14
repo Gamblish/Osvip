@@ -18,6 +18,15 @@
 	
 }
 
+.MenuBar__Container__UserInfo{
+	width: 270px;
+	height: 135px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+}
+
 .MenuBar__Container__Logo{
 	width: 78px;
 	height: 37px;
@@ -33,7 +42,7 @@
 	margin-top: 13.5px;
 }
 
-.MenuBar__Container__Photo{
+.MenuBar__Container__UserInfo__Photo{
 	margin-top: 20px;
 	width: 75px;
 	height: 75px;
@@ -43,12 +52,12 @@
 }
 
 
-.MenuBar__Container__Photo img{
+.MenuBar__Container__UserInfo__Photo img{
 	height: 100%;
 	width: 100%;
 }
 
-.MenuBar__Container__FCS{
+.MenuBar__Container__UserInfo__FCS{
 	color: white;
 	margin-top: 10px;
 	font-weight: 400;
