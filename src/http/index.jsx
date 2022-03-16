@@ -2,7 +2,7 @@ import axios from "axios";
 
 import Cookies from "universal-cookie";
 
-export const API_URL = 'http://192.168.43.127:7239/api'
+export const API_URL = 'http://172.20.10.9:7239/api'
 
 const cookies = new Cookies();
 
@@ -14,7 +14,7 @@ const api = axios.create({
 })
 
 api.interceptors.request.use((config) => {
-	config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
+	config.headers.Authorization = `Bearer ${localStorage.getItem('access_token')}`
 
 	return config;
 })

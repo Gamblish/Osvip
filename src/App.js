@@ -23,7 +23,7 @@ import NotFound from "./Pages/NotFound";
 import Login from "./Components/Login";
 import './App.css'
 import Store from "./store/Store";
-import api from "./http";
+import api, { API_URL } from "./http";
 import AuthService from "./services/AuthService";
 
 
@@ -33,25 +33,45 @@ import AuthService from "./services/AuthService";
 
 function App() {
 
+
   const [currentPage, setCurrentPage] = useState('/');
   const [modalActive, setModalActive] = useState(false)
   const [store, setStore] = useState(new Store())
   const [Auth, setAuth] = useState(false)
-  const [FCS, setFCS] = useState('')
-  useEffect(() => api.get('http://192.168.43.127:7239/api/Account/UserInfo').then(response => {
-    response.status == 200 ?
-      AuthService.UserData(setAuth, setFCS)
-      : setAuth(false);
-    console.log(response)
+  const [userData, setUserData] = useState('')
+  const [loading, setLoading] = useState(true)
+
+  function isAuth(data) {
+    setLoading(true)
+    setAuth(true)
+
+    setUserData(data)
+    console.log(data)
+
+
+
+
+
 
   }
-  )
 
 
-    , [])
-  useEffect(() => store.setAuth(Auth), [Auth])
+
+  useEffect(() => api.get(API_URL + '/user/info').then(response => {
+
+    isAuth(response.data['userInfo'])
+    setLoading(false)
+
+
+  }
+
+  ).catch().finally(() => setLoading(false)), [])
+  useEffect(() => api.get(API_URL + '/user/info').then(response =>
+    response.status == 200 ?
+      setUserData(response.data['userInfo']) : null
+  ), [Auth])
   return (
-    <Context.Provider value={{ currentPage, setCurrentPage, store }}>
+    <Context.Provider value={{ currentPage, setCurrentPage, store, userData, Auth, setAuth, setModalActive, loading, setLoading, modalActive }}>
       <div className="App">
 
 
@@ -59,7 +79,7 @@ function App() {
 
           <Router>
 
-            {currentPage == "*" ? null : <MenuBar FCS={FCS} currentPage={currentPage} active={modalActive} setActive={setModalActive} Auth={Auth} setAuth={setAuth} />}
+            {currentPage == "*" ? null : <MenuBar currentPage={currentPage} active={modalActive} setActive={setModalActive} />}
             <div className={currentPage === '*' ? null : 'PageContainer'} >
               <Routes>
 
@@ -79,7 +99,7 @@ function App() {
 
           </Router>
         </div>
-        <Login Active={modalActive} UserData={AuthService.UserData} setAuth={setAuth} setFCS={setFCS} setActive={setModalActive} />
+        <Login Active={modalActive} setActive={setModalActive} />
 
       </div>
     </Context.Provider>

@@ -1,7 +1,7 @@
 .MenuBar{
 	min-width: 300px;
 	
-	height: 100vh;
+	height: 100%;
 	background: #11192A;
 	position: fixed;
 	
@@ -20,19 +20,31 @@
 
 .MenuBar__Container__UserInfo{
 	width: 270px;
-	height: 135px;
+	height: fit-content;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	padding-bottom: 10px;
 
 }
 
 .MenuBar__Container__Logo{
-	width: 78px;
+	width: 100%;
 	height: 37px;
 	margin-top: 13.5px;
-	align-self: flex-start;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 
+}
+.MenuBar__Container__Logo button{
+	background: none;
+}
+.MenuBar__Container__Logo button svg:hover{
+	
+	fill: rgb(255, 71, 71)!important;
+	
 }
 
 .MenuBar__Container__Line{
@@ -61,7 +73,8 @@
 	color: white;
 	margin-top: 10px;
 	font-weight: 400;
-	font-size: 18px;
+	font-size: 16px ;
+	
 }
 
 .MenuBar__Container__LineTwo{
@@ -123,4 +136,29 @@
 
 .MenuBarHidden{
 	visibility: hidden;
+}
+
+.MenuBar__Container__UserInfo__SignIn{
+	margin-top: 20px;
+	height: 43px;
+	border-radius: 100px;
+	background-color: #1f2c48;
+	width: 80%;
+	align-self: center;
+	color: #fff;
+	font-size: 17px;
+}
+
+.MenuBar__Container__UserInfo__SignIn:hover{
+	cursor: pointer;
+	transition: 0.3s;
+	background-color: #3c90ffaf;
+}
+
+.MenuBar__Container__UserInfo_AuthButtons{
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
 }

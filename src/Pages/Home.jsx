@@ -7,7 +7,7 @@ import axios from 'axios'
 import api, { API_URL } from '../http'
 export default function Home(props) {
 
-	const { setCurrentPage } = useContext(Context)
+	const { setCurrentPage, store, setAuth } = useContext(Context)
 	useEffect(() => setCurrentPage('/'), [])
 
 	function test() {
@@ -26,7 +26,7 @@ export default function Home(props) {
 
 			<Link to='/login'>Войти в айти</Link>
 
-
+			<button onClick={() => store.logout(setAuth)}>XYOI</button>
 			<button onClick={() => test()}> asdasdasdsadsa</button>
 
 		</div>

@@ -2,13 +2,12 @@ import api from "../http";
 
 export default class AuthService {
 	static async login(email, password) {
-		return api.post('Account/Login', { email, password })
+		return api.post('user/login', { email, password })
 
 	}
-	FCS = ''
 
-	static async registration(email, password) {
-		return api.post('/registration', { email, password })
+	static async registration(email, password, fcs) {
+		return api.post('user/register', { email, password, fcs })
 
 	}
 
@@ -17,11 +16,6 @@ export default class AuthService {
 
 	}
 
-	static async UserData(setAuth, setFCS) {
-		setAuth(true)
-
-		api.get('http://192.168.43.127:7239/api/Account/UserInfo').then(response => setFCS(response.data["userInfo"]["fcs"]))
-	}
 
 }
-
+	//api.get('http://192.168.43.127:7239/api/user/info').then(response => setUserData(response.data["userInfo"]))

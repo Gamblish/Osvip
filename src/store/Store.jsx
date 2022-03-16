@@ -6,7 +6,7 @@ import { Context } from "../Context";
 import api from "../http";
 
 export default class Store {
-	user = { IUser }
+	user = new IUser();
 	isAuth = false;
 
 
@@ -22,37 +22,45 @@ export default class Store {
 
 	}
 
-	async login(email, password, clear, setAuth, setFCS, UserData) {
+	async login(email, password, clear, setAuth) {
 		try {
 			const response = await AuthService.login(email, password);
 			console.log(response)
-			localStorage.setItem('token', response.data['token']);
-			UserData(setAuth, setFCS)
-			this.setUser(response.data[0])
+			localStorage.setItem('access_token', response.data['access_token']);
+
+
 			clear()
+			setAuth(true)
 		} catch (e) {
 			console.log(e.response?.data?.message)
 		}
 	}
-	async registration(email, password) {
-		try {
-			const response = await AuthService.registration(email, password);
-			console.log(response)
-			localStorage.setItem('token', response.data['token']);
-			this.setAuth(true)
-			this.setUser(response.data[0])
-		} catch (e) {
-			console.log(e.response?.data?.message)
-		}
+	async registration(email, password, fcs) {
+		//try {
+
+		const response = await AuthService.registration(email, password, fcs);
+		console.log(response)
+
+
+
+		this.user.id = (response.data['userInfo'].id)
+		this.user.email = (response.data['userInfo'].email)
+		this.user.fcs = (response.data['userInfo'].fcs)
+		console.log(this.user)
+
+
+		//} catch (e) {
+		//console.log(e.response?.data?.message)
+		//}
 
 	}
 
 
-	async logout() {
+	async logout(setAuth) {
 		try {
-			const response = await AuthService.logout();
-			localStorage.removeItem('token',);
-			this.setAuth(false)
+			//const response = await AuthService.logout();
+			localStorage.removeItem('access_token',);
+			setAuth(false)
 			this.setUser({})
 		} catch (e) {
 			console.log(e.response?.data?.message)

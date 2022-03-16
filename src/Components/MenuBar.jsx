@@ -4,8 +4,9 @@ import Samolet from '../Source/Images/Samolet.png'
 import { Link, useLocation } from 'react-router-dom'
 import { Context } from '../Context'
 import MenuLink from './MenuLink'
-import { ContactsSvg, DeclarationsSvg, HomeSvg, TDirectionSvg, TestsSvg, TRansferSvg } from '../Source/Svgs'
+import { ContactsSvg, DeclarationsSvg, HomeSvg, TDirectionSvg, TestsSvg, TRansferSvg, ExitSvg } from '../Source/Svgs'
 import MenuBarProfile from './MenuBarProfile'
+import AuthButtons from './AuthButtons'
 
 
 
@@ -14,7 +15,7 @@ import MenuBarProfile from './MenuBarProfile'
 
 
 export default function MenuBar(props) {
-	const { store } = useContext(Context)
+	const { Auth, setAuth, userData, loading, store } = useContext(Context)
 
 
 
@@ -34,13 +35,18 @@ export default function MenuBar(props) {
 						<path d="M1 17.9343V34.0029H24.2582V31.4657M1 17.9343H24.2582V20.4714M1 17.9343L6.95636 10.5343L8.65818 16.8771L13.48 2.5L16.8836 16.8771L21.1382 10.5343L24.2582 16.8771M24.2582 20.4714H13.48L4.40364 31.4657H24.2582M24.2582 20.4714V31.4657M50.7143 17.9343V39.5L63.1429 13.6771V34.1857M65.9527 34.0029V17.9343H79V34.0029M28.5127 17.9343V34.0029H47.5164V25.9686H33.6182L47.5164 17.9343H28.5127Z" stroke="#3C8FFF" />
 					</svg>
 
+					{Auth ? <button onClick={() => store.logout(setAuth)}><ExitSvg /></button> : null}
+
+
+
 				</div>
 
 				<div className="MenuBar__Container__Line"></div>
 				<div className='MenuBar__Container__UserInfo'>
-
-					{props.Auth ? <MenuBarProfile FCS={props.FCS} /> : <button onClick={() => props.setActive(true)}>Войты</button>}
+					{loading ? null : (Auth ? <MenuBarProfile /> :
+						<AuthButtons setActive={props.setActive} />)}
 				</div>
+
 
 
 
