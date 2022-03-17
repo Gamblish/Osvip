@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
-import Cookies from 'universal-cookie'
+
 import { Context } from '../Context'
 import api, { API_URL } from '../http'
 
@@ -52,7 +52,7 @@ export default function RegistrationConfirm() {
 
 
 			<button className='LoginContainer__CloseButton' onClick={() => setModalActive(false)} >╳</button>
-			<div className='LoginContainer__EmailMessage'>На  почту {store.user.email} mister-gamblish227@yandex.ru отправлен код подтверждения </div>
+			<div className='LoginContainer__EmailMessage'>На  почту {store.user.email}  отправлен код подтверждения </div>
 			<form className='LoginContainer__Forms'>
 
 				<input className='LoginContainer__Forms__Input' type='text' value={confirmCode} placeholder='' onChange={e => setConfirmCode(e.target.value)} />
