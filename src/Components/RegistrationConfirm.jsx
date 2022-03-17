@@ -16,6 +16,7 @@ export default function RegistrationConfirm() {
 
 
 	function confirmed(access) {
+		setModalActive(false)
 		setAuth(true)
 		localStorage.setItem('access_token', access)
 
@@ -39,7 +40,7 @@ export default function RegistrationConfirm() {
 
 
 				: setError('Неправильный код подтверждения')).catch(setError('Неправильный код подтверждения'))
-		setModalActive(false)
+
 
 
 
@@ -52,11 +53,11 @@ export default function RegistrationConfirm() {
 
 
 			<button className='LoginContainer__CloseButton' onClick={() => setModalActive(false)} >╳</button>
-			<div className='LoginContainer__EmailMessage'>На  почту {store.user.email} mister-gamblish227@yandex.ru отправлен код подтверждения </div>
+			<div className='LoginContainer__EmailMessage'>На  почту {store.user.email}  отправлен код подтверждения </div>
 			<form className='LoginContainer__Forms'>
 
 				<input className='LoginContainer__Forms__Input' type='text' value={confirmCode} placeholder='' onChange={e => setConfirmCode(e.target.value)} />
-				<div className='LoginContainer__ConfirmCodeError'>Неверный код</div>
+				<div className='LoginContainer__ConfirmCodeError'>{error}</div>
 
 
 

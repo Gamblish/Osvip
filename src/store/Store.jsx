@@ -12,6 +12,7 @@ export default class Store {
 
 
 
+
 	setAuth(bool) {
 		this.isAuth = bool
 		console.log(this.isAuth)
@@ -35,31 +36,39 @@ export default class Store {
 			console.log(e.response?.data?.message)
 		}
 	}
-	async registration(email, password, fcs) {
-		//try {
+	async registration(email, password, fcs, setModalActive) {
+		try {
 
-		const response = await AuthService.registration(email, password, fcs);
-		console.log(response)
-
-
-
-		this.user.id = (response.data['userInfo'].id)
-		this.user.email = (response.data['userInfo'].email)
-		this.user.fcs = (response.data['userInfo'].fcs)
-		console.log(this.user)
+			const response = await AuthService.registration(email, password, fcs);
+			console.log(response)
 
 
-		//} catch (e) {
-		//console.log(e.response?.data?.message)
-		//}
 
+
+			this.user.id = (response.data['userInfo'].id)
+			this.user.email = (response.data['userInfo'].email)
+			this.user.fcs = (response.data['userInfo'].fcs)
+			console.log(this.user)
+
+			setModalActive('register_confirm')
+
+
+		} catch (e) {
+			console.log(e.response?.data?.message)
+
+
+
+
+
+
+		}
 	}
 
 
 	async logout(setAuth) {
 		try {
 			//const response = await AuthService.logout();
-			localStorage.removeItem('access_token',);
+			localStorage.removeItem('access_token');
 			setAuth(false)
 			this.setUser({})
 		} catch (e) {

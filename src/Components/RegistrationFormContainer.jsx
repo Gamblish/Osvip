@@ -16,13 +16,12 @@ export default function RegistrationFormContainer() {
 	const [formValid, setFormValid] = useState(false)
 	const [passwordEqualDirty, setPasswordEqualDirty] = useState(false)
 
-	useEffect(() => {
-		if (emailError || passwordError || passwordEqual == false) {
-			setFormValid(false)
-		} else {
-			setFormValid(true)
-		}
-	}, [emailError, passwordError])
+
+	useEffect(() =>
+
+		setFormValid(!(emailError || passwordError || !passwordEqual))
+
+		, [emailError, passwordError, passwordEqual])
 
 
 
@@ -71,9 +70,11 @@ export default function RegistrationFormContainer() {
 		}
 
 	}
-	function registerHandler() {
-		store.registration(email, password, fcs)
-		setModalActive('register_confirm')
+	const registerHandler = () => {
+
+		store.registration(email, password, fcs, setModalActive)
+
+
 	}
 
 	const passwordHandler = (e) => {

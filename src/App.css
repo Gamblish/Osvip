@@ -6,3 +6,39 @@
 	pointer-events: none;
 	
 }
+
+.Contacts__Container span{
+	font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: rgba(0, 0, 0, 0.5);
+	margin-top:41px;
+
+
+}
+
+.Contacts__Container{
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	
+	padding-left: 40px;
+}
+
+.Contacts__Container p{
+	
+
+
+
+font-size: 18px;
+
+font-weight: 400;
+line-height: 23px;
+margin-top: 3px;
+
+
+
+
+
+}

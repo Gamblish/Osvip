@@ -7,9 +7,10 @@
 
 .TransferContainer__Header{
 	width: 100%;
-	min-height: 220px;
+	min-height: 170px;
 	background: #F9FAFC;
 	box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.05);
+	
 }
 
 .TransferContainer__Header__Text{
@@ -20,8 +21,8 @@
 	
 }
 .TransferContainer__Header__Text span{
-	font-size: 2.22vmin;
-	line-height: 5vmin;
+	font-size: 19.98px;
+	line-height: 45px;
 	color:#223354;
 }
 
@@ -42,3 +43,11 @@
 
 
 }
+
+.ContactsText span{
+	font-size: 
+	50px !important;
+	
+
+}
+
