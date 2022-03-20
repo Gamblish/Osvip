@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
-import Cookies from 'universal-cookie'
+
 import { Context } from '../Context'
 import api, { API_URL } from '../http'
 

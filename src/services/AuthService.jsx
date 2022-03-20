@@ -18,4 +18,4 @@ export default class AuthService {
 
 
 }
-	//api.get('http://192.168.43.127:7239/api/user/info').then(response => setUserData(response.data["userInfo"]))
+	
