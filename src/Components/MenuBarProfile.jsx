@@ -2,6 +2,7 @@
 import Samolet from '../Source/Images/Samolet.png'
 import React, { useContext, useEffect } from 'react'
 import { Context } from '../Context'
+import { Link } from 'react-router-dom'
 
 export default function MenuBarProfile() {
 
@@ -10,8 +11,9 @@ export default function MenuBarProfile() {
 	return (
 		<div className='MenuBar__Container__UserInfo'>
 			<div className='MenuBar__Container__UserInfo__Photo'>
-
-				<img src={Samolet} alt="" />
+				<Link to='/profile'>
+					<img src={Samolet} alt="" />
+				</Link>
 
 
 			</div>

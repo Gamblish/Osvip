@@ -1,53 +1,181 @@
 .TransferContainer{
-	max-width: 1620px;
-	
-	
-
-}
-
-.TransferContainer__Header{
-	width: 100%;
-	min-height: 170px;
-	background: #F9FAFC;
-	box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.05);
-	
-}
-
-.TransferContainer__Header__Text{
-	padding-left: 40px;
-	padding-top: 40px;
-	white-space: nowrap;
-	
-	
-}
-.TransferContainer__Header__Text span{
-	font-size: 19.98px;
-	line-height: 45px;
-	color:#223354;
-}
-
-.TransferContainer__DepartmentsContainer{
-	max-width: 100%;
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
+
+}
+
+
+.ApplicationContainer{
+	max-width: 1620px;
+	padding-top: 40px;
+	padding-left: 40px;
+}
+
+.ApplicationContainer span{
+	font-size: 14px;
+	
+	
+	color:#00000080;
+}
+
+.ApplicationContainer__TransferType label {
+	margin-right: 15px;
+	line-height: 32px;
+	font-size: 16px;
+	font-weight: 300;
+  }
+  
+ .ApplicationContainer__TransferType input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	cursor: pointer;
+  
+	border-radius: 50%;
+	width: 16px;
+	height: 16px;
+  
+	border: 2px solid #999;
+	transition: 0.2s all linear;
+	margin-right: 5px;
+  
+	position: relative;
+	top: 4px;
+  }
+  
+  .ApplicationContainer__TransferType input:checked {
+	border: 6px solid black;
+	
+  }
+  
+ 
+  
+ 
+  
+ 
+.ApplicationContainer__TransferTypeChoice{
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+	min-width: 550px;
+}
+
+.ApplicationContainer__Input{
+	min-width: 550px;
+	min-height: 31px;
+	background-color: #E1E6F4;
+	font-size: 14px;
+	margin-top: 15px;
+	border-radius: 4px;
+	overflow: 'scroll',
+	
+}
+
+.ApplicationContainer__Form{
+	display: flex;
+	flex-direction: column;
+	max-width: 550px;
+}
+
+#imgTransfer{
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+#imgMarks{
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+
+.imgLabel{
+	margin-top: 20px;
+	font-size: 18px;
+	color: #00000080;
+	cursor: pointer;
+	width: fit-content;
+	min-width: 490px;
+
+}
+.imgLabel svg{
+	float: right;
+
+}
+
+.FileName{
+	margin-top: 5px;
+	color: #999;
+}
+
+
+.ApplicationContainer__InputTel{
+	min-width: 550px;
+	min-height: 31px;
+	background-color: #E1E6F4;
+	font-size: 14px;
+	
+	border-radius: 4px;
+
+}
+
+.ApplicationContainer__SubmitButton{
+	max-width: 212px;
+	min-height: 40px;
+	font-size: 16px;
+	background-color: #0E0F0F;
+	border-radius: 4px;
+	margin-top: 30px;
+	color: white;
+	font-weight: 300;
+	box-shadow: 0px 4px 4px 0px #00000040;
+
+box-shadow: 0px 4px 4px 0px #00000040;
+
+
+	
+
+}
+
+.li{
+	max-height: 64px;
+	overflow: scroll;
+	
+	
+}
+
+.ExamplesContainer{
+	max-width: 1920px;
+	min-height: 300px;
+	display: flex;
+	flex-direction: column;
+	padding-left: 100px;
+	padding-right: 100px;
+	align-items: center;
+	font-weight: 300;
+	
+
+
+
+}
+
+.ExamplesContainer div{
+	min-width: 400px;
+	min-height: 100px;
+	background-color: #CAD1E4;
+	border-radius: 24px;
+	margin-top: 50px;
 	justify-content: center;
-	padding-right: 40px;
 	
+	align-items: center;
+	text-align: center;
+	display: flex;
+	font-size: 18px;
+	box-shadow: 0px 4px 24px 0px #00000040;
+	color:#00000080
 	
-	
-	
-	
-	
-	
-
-
 }
-
-.ContactsText span{
-	font-size: 
-	50px !important;
-	
-
+.ExamplesContainer span{
+	display: inline-block;
 }
-

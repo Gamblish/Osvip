@@ -4,6 +4,7 @@ import { IUser } from "../models/IUser";
 import { useContext } from "react";
 import { Context } from "../Context";
 import api from "../http";
+import { Link } from "react-router-dom";
 
 export default class Store {
 	user = new IUser();
@@ -71,6 +72,7 @@ export default class Store {
 			localStorage.removeItem('access_token');
 			setAuth(false)
 			this.setUser({})
+
 		} catch (e) {
 			console.log(e.response?.data?.message)
 		}

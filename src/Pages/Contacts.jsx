@@ -7,8 +7,8 @@ export default function Contacts() {
   return (
 
     <div>
-      <div className="TransferContainer__Header">
-        <div className='TransferContainer__Header__Text ContactsText' >
+      <div className="HomeContainer__Header">
+        <div className='HomeContainer__Header__Text ContactsText' >
 
           <span>Контакты</span>
 

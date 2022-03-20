@@ -16,7 +16,7 @@ import Home from "./Pages/Home";
 
 import { useEffect, useState, useRef } from "react";
 import TDirection from "./Pages/TDirection";
-import Declarations from "./Pages/Declarations";
+
 import Tests from "./Pages/Tests";
 import Contacts from "./Pages/Contacts";
 import NotFound from "./Pages/NotFound";
@@ -25,6 +25,7 @@ import './App.css'
 import Store from "./store/Store";
 import api, { API_URL } from "./http";
 import AuthService from "./services/AuthService";
+import Profile from "./Pages/Profile";
 
 
 
@@ -37,7 +38,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState('/');
   const [modalActive, setModalActive] = useState(false)
   const [store, setStore] = useState(new Store())
-  const [Auth, setAuth] = useState(false)
+  const [Auth, setAuth] = useState(true)
   const [userData, setUserData] = useState('')
   const [loading, setLoading] = useState(true)
 
@@ -85,10 +86,10 @@ function App() {
 
                 <Route path='/' element={<Home />} />
                 <Route path='/tdirection' element={<TDirection />} />
-                <Route path='/transfer' element={<Transfer />} />
-
-                <Route path='/declarations' element={<Declarations />} />
-                <Route path='/tests' element={<Tests />} />
+                {Auth ?
+                  <><Route path='/transfer' element={<Transfer />} />
+                    <Route path='/tests' element={<Tests />} />
+                    <Route path='/profile' element={<Profile />} /></> : null}
                 <Route path='/contacts' element={<Contacts />} />
                 <Route path='*' element={<NotFound />} />
 

@@ -1,0 +1,26 @@
+.DirectionsContainer{
+	width: 100%;
+	
+	display:grid;
+
+	
+	
+	min-width: 1130px;
+	grid-template-rows: 30px;
+	grid-template-columns: 36% 24% 16% 24%;
+}
+.DirectionsContainer div{
+	display: flex;
+	align-items: center;
+	border: 0.5px solid #3C8FFF;
+	padding-left: 3%;
+	
+	
+	
+	
+	
+}
+
+.DirectionsContainer__Header{
+background-color:  white !important;
+}

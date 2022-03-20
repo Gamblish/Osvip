@@ -1,33 +1,55 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import DepartmentCard from '../Components/DepartmentCard'
 import '../Source/Styles/Home.css'
 import { Context } from '../Context'
-import { useContext } from 'react'
-import axios from 'axios'
-import api, { API_URL } from '../http'
-export default function Home(props) {
 
-	const { setCurrentPage, store, setAuth } = useContext(Context)
+
+
+export default function Transfer(props) {
+	const { setCurrentPage } = useContext(Context)
 	useEffect(() => setCurrentPage('/'), [])
-
-	function test() {
-
-
-	}
-
-
 
 	return (
 
+		<div className='HomeContainer'>
+			<div className="HomeContainer__Header">
+				<div className='HomeContainer__Header__Text'>
 
+					<span>Перевод и восстановление студентов МАИ
+						<br />
 
-		<div >
-			HomeSSSSS
+						Институт № 3 «Системы управления, информатика и электроэнергетика»</span>
 
-			<Link to='/login'>Войти в айти</Link>
+				</div>
+			</div>
+			<div className="HomeContainer__DepartmentsContainer">
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
 
-			<button onClick={() => store.logout(setAuth)}>XYOI</button>
-			<button onClick={() => test()}> asdasdasdsadsa</button>
+				<DepartmentCard />
+				<DepartmentCard />
+				<DepartmentCard />
+
+			</div>
 
 		</div>
 
