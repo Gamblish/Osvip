@@ -24,11 +24,17 @@ export default class Store {
 
 	}
 
-	async login(email, password, clear, setAuth) {
+	async login(email, password, clear, setAuth, setUserData) {
 		try {
 			const response = await AuthService.login(email, password);
 			console.log(response)
 			localStorage.setItem('access_token', response.data['access_token']);
+			setUserData(response.data['userInfo'])
+
+			this.user.id = (response.data['userInfo'].id)
+			this.user.email = (response.data['userInfo'].email)
+			this.user.fcs = (response.data['userInfo'].fcs)
+
 
 
 			clear()
@@ -37,7 +43,7 @@ export default class Store {
 			console.log(e.response?.data?.message)
 		}
 	}
-	async registration(email, password, fcs, setModalActive) {
+	async registration(email, password, fcs, setModalActive,) {
 		try {
 
 			const response = await AuthService.registration(email, password, fcs);

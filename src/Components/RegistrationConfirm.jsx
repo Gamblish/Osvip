@@ -10,7 +10,7 @@ import api, { API_URL } from '../http'
 
 
 export default function RegistrationConfirm() {
-	const { setModalActive, password, setPasswordEqual, userData, store, setAuth } = useContext(Context)
+	const { setModalActive, password, setPasswordEqual, userData, store, setAuth, setUserData } = useContext(Context)
 	const [confirmCode, setConfirmCode] = useState('')
 	const [error, setError] = useState('')
 
@@ -23,23 +23,29 @@ export default function RegistrationConfirm() {
 
 	}
 
+	function RegisterConfirm(response) {
+		confirmed(response.data['access_token'])
+		setUserData(response.data['userInfo'])
+		console.log(response)
 
+	}
 
 
 	function submitHandler() {
-		console.log(confirmCode)
+
 
 
 
 		api.post(API_URL + '/user/confirmEmail', { userId: store.user.id, code: confirmCode })
 			.then(response => response.status == 200 ?
-				confirmed(response.data['access_token'])
+				RegisterConfirm(response)
 
 
 
 
 
-				: setError('Неправильный код подтверждения')).catch(setError('Неправильный код подтверждения'))
+
+				: null).catch(() => setError('Неправильный код подтверждения'))
 
 
 

@@ -7,7 +7,7 @@ export default function LoginForm() {
 	const [email, setEmail] = useState('')
 
 
-	const { store, setModalActive, setAuth, } = useContext(Context)
+	const { store, setModalActive, setAuth, setUserData } = useContext(Context)
 	function clearLoginForm() {
 
 		setPassword('')
@@ -31,7 +31,7 @@ export default function LoginForm() {
 				<div className='LoginContainer__ForgotPass'>Забыли пароль?</div>
 
 
-				<input className='LoginContainer__Forms__Button' type="button" onClick={() => store.login(email, password, clearLoginForm, setAuth)} value="Войти" />
+				<input className='LoginContainer__Forms__Button' type="button" onClick={() => store.login(email, password, clearLoginForm, setAuth, setUserData)} value="Войти" />
 
 				<button className='LoginContainer__Registration' onClick={() => setModalActive('register')}>Создать аккаунт</button>
 

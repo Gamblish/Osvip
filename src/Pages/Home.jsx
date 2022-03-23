@@ -2,12 +2,21 @@ import React, { useContext, useEffect, useState } from 'react'
 import DepartmentCard from '../Components/DepartmentCard'
 import '../Source/Styles/Home.css'
 import { Context } from '../Context'
-
+import { API_URL } from '../http'
+import axios from 'axios'
 
 
 export default function Transfer(props) {
 	const { setCurrentPage } = useContext(Context)
 	useEffect(() => setCurrentPage('/'), [])
+	const [department, setDepartment] = useState([])
+	useEffect(() =>
+	(axios.get(API_URL + "/department/all").then(x => {
+		setDepartment(x.data)
+
+	}
+	)
+	), [])
 
 	return (
 
@@ -23,31 +32,7 @@ export default function Transfer(props) {
 				</div>
 			</div>
 			<div className="HomeContainer__DepartmentsContainer">
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
-
-				<DepartmentCard />
-				<DepartmentCard />
-				<DepartmentCard />
+				{department.map(item => <DepartmentCard name={item.name} desc={item.description} img={item.imagePath} />)}
 
 			</div>
 

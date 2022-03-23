@@ -121,7 +121,7 @@
 }
 
 .ApplicationContainer__SubmitButton{
-	max-width: 212px;
+	min-width: 400px;
 	min-height: 40px;
 	font-size: 16px;
 	background-color: #0E0F0F;
@@ -150,8 +150,8 @@ box-shadow: 0px 4px 4px 0px #00000040;
 	min-height: 300px;
 	display: flex;
 	flex-direction: column;
-	padding-left: 100px;
-	padding-right: 100px;
+	margin-left: 100px;
+	margin-right: 100px;
 	align-items: center;
 	font-weight: 300;
 	
@@ -160,7 +160,7 @@ box-shadow: 0px 4px 4px 0px #00000040;
 
 }
 
-.ExamplesContainer div{
+.ExamplesContainer a{
 	min-width: 400px;
 	min-height: 100px;
 	background-color: #CAD1E4;
@@ -178,4 +178,13 @@ box-shadow: 0px 4px 4px 0px #00000040;
 }
 .ExamplesContainer span{
 	display: inline-block;
+}
+.arrow{
+	opacity: 0;
+}
+
+.ApplicationContainer__Error{
+	margin-top: 10px;
+	color: red;
+	font-size: 16px;
 }

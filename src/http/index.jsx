@@ -2,7 +2,8 @@ import axios from "axios";
 
 import Cookies from "universal-cookie";
 
-export const API_URL = 'http://192.168.162.127:7239/api'
+export const API_URL = 'http://172.20.10.9:7239/api'
+export const SOURCE_URL = 'http://172.20.10.9:7239'
 
 const cookies = new Cookies();
 
