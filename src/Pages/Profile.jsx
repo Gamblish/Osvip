@@ -88,14 +88,14 @@ export default function Profile() {
 				</div>
 				<div className='DataContainer FCSContainer '>
 					Результат тестирования:
-					<div>1000 баллов</div>
+					<div>{userData.result != null ? userData.result : 0} баллов</div>
 					<span>e-mail:</span>
 					<div>{userData.email}</div>
 
 
 				</div>
 			</div>
-			<div className='ProfileChangePassword'>Сменить пароль</div>
+
 
 		</div >
 	)

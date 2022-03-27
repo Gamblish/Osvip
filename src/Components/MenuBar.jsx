@@ -15,7 +15,7 @@ import AuthButtons from './AuthButtons'
 
 
 export default function MenuBar(props) {
-	const { Auth, setAuth, userData, loading, store, setCurrentPage } = useContext(Context)
+	const { Auth, setAuth, userData, loading, store, setCurrentPage, testActivated } = useContext(Context)
 
 
 
@@ -57,7 +57,8 @@ export default function MenuBar(props) {
 					<MenuLink currentPage={props.currentPage} LinkName='Главная' to='/' icon={HomeSvg} />
 
 					<MenuLink currentPage={props.currentPage} LinkName='Направление подготовки' to='/tdirection' icon={TDirectionSvg} />
-					{Auth ? <><MenuLink currentPage={props.currentPage} LinkName='Восстановление и перевод' to='/transfer' icon={TRansferSvg} /><MenuLink currentPage={props.currentPage} LinkName='Тестирование' to='/tests' icon={TestsSvg} /></> : null}
+					{Auth ? <><MenuLink currentPage={props.currentPage} LinkName='Восстановление и перевод' to='/transfer' icon={TRansferSvg} />
+						{userData.result == null ? <MenuLink currentPage={props.currentPage} LinkName='Тестирование' to={!testActivated ? '/tests' : '/test'} icon={TestsSvg} /> : null}</> : null}
 					<MenuLink currentPage={props.currentPage} LinkName="Контакты" to='/contacts' icon={ContactsSvg} />
 
 				</ul>

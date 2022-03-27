@@ -5,9 +5,10 @@ import { useState, useContext } from 'react'
 export default function LoginForm() {
 	const [password, setPassword] = useState('')
 	const [email, setEmail] = useState('')
+	const [error, setError] = useState('')
 
 
-	const { store, setModalActive, setAuth, setUserData } = useContext(Context)
+	const { store, setModalActive, setAuth, setUserData, setImgPath } = useContext(Context)
 	function clearLoginForm() {
 
 		setPassword('')
@@ -28,10 +29,13 @@ export default function LoginForm() {
 					textarea='font - size: 100px' />
 
 				<input placeholder='Пароль' type="password" value={password} onChange={e => setPassword(e.target.value)} className='LoginContainer__Forms__Input' />
-				<div className='LoginContainer__ForgotPass'>Забыли пароль?</div>
 
 
-				<input className='LoginContainer__Forms__Button' type="button" onClick={() => store.login(email, password, clearLoginForm, setAuth, setUserData)} value="Войти" />
+				<div className='LoginContainer__loginError'>{error}</div>
+
+
+				<input className='LoginContainer__Forms__Button' type="button" onClick={() => store.login(email, password, clearLoginForm, setAuth, setUserData, setImgPath, setError)} value="Войти" />
+
 
 				<button className='LoginContainer__Registration' onClick={() => setModalActive('register')}>Создать аккаунт</button>
 

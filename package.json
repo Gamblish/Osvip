@@ -11,11 +11,13 @@
     "js-cookie": "^3.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-moment": "^1.1.1",
     "react-phone-input-2": "^2.15.0",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
     "react-select": "^5.2.2",
     "universal-cookie": "^4.0.4",
+    "use-timer": "^2.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

@@ -102,7 +102,7 @@
 }
 
 .LoginContainer__Forms__Button{
-	margin-top: 40px;
+	margin-top: 20px;
 	height: 43px;
 	border-radius: 100px;
 	background-color: #1f2c48;
@@ -139,10 +139,12 @@
 
 .LoginContainer__ForgotPass{
 	margin-top: 7px;
+	font-size: 15px;
 	
 	text-align: end;
 	color: rgba(255, 255, 255, 0.89);
 	cursor: pointer;
+	background: none;
 
 }
 
@@ -215,6 +217,20 @@
 	font-size: 12px;
 	color: rgb(216, 53, 25);
 }
+
+.LoginContainer__loginError{
+	font-size: 14px;
+	margin-top: 20px;
+	color: rgb(216, 53, 25);
+	align-items: center;
+	display: flex;
+	justify-content: center;
+
+
+}
+
+
+
 .LoginContainer__Forms__PasswordEqualError{
 	
 	width: 80%;

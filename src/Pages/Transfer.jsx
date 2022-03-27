@@ -76,7 +76,7 @@ export default function Home(props) {
 					'Content-Type': 'multipart/form-data'
 
 				}
-			}).then(() => setError('')).catch(() => setError('Заполните все поля '))
+			}).then(() => setError('Заявка отправлена')).catch(() => setError('Заполните все поля'))
 
 
 	}
@@ -135,6 +135,8 @@ export default function Home(props) {
 			</div>
 			<div className='TransferContainer'>
 				<div className='ApplicationContainer'>
+					<div className={error == 'Заполните все поля' ? 'ApplicationContainer__Error' : 'ApplicationContainer__Success'}>{error}</div>
+
 					<span>Выберите один вариант ответа</span>
 					<form >
 						<div className='ApplicationContainer__TransferType'>
@@ -331,7 +333,6 @@ export default function Home(props) {
 					</form>
 					<button className='ApplicationContainer__SubmitButton' onClick={() => submitAll()}>Отправить данные</button>
 
-					<div className='ApplicationContainer__Error'>{error}</div>
 
 
 				</div>

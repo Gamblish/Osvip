@@ -29,6 +29,7 @@ export default function Login(props) {
 				return <RegistrationFormContainer />
 			case 'register_confirm':
 				return <RegistrationConfirm />
+
 			default:
 				return null
 

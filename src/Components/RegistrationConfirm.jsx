@@ -10,7 +10,7 @@ import api, { API_URL } from '../http'
 
 
 export default function RegistrationConfirm() {
-	const { setModalActive, password, setPasswordEqual, userData, store, setAuth, setUserData } = useContext(Context)
+	const { setModalActive, password, setPasswordEqual, userData, store, setAuth, setUserData, setImgPath } = useContext(Context)
 	const [confirmCode, setConfirmCode] = useState('')
 	const [error, setError] = useState('')
 
@@ -26,6 +26,7 @@ export default function RegistrationConfirm() {
 	function RegisterConfirm(response) {
 		confirmed(response.data['access_token'])
 		setUserData(response.data['userInfo'])
+		setImgPath(response.data['userInfo'].imgPath)
 		console.log(response)
 
 	}

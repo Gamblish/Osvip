@@ -14,6 +14,7 @@ export default function Transfer(props) {
 	(axios.get(API_URL + "/department/all").then(x => {
 		setDepartment(x.data)
 
+
 	}
 	)
 	), [])

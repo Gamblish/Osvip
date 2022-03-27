@@ -6,6 +6,10 @@
 	pointer-events: none;
 	
 }
+.Admin{
+	font-size: 16px;
+	color:#223354;
+}
 
 .Contacts__Container span{
 	font-weight: 400;

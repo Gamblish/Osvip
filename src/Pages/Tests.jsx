@@ -1,89 +1,92 @@
-import { useEffect, useContext } from "react"
+import { useEffect, useContext, useState } from "react"
 import React from 'react'
 import { Context } from "../Context"
+import '../Source/Styles/Tests.css'
 import Select from 'react-select';
-import Downshift from 'downshift'
+import axios from "axios";
+import api, { API_URL } from "../http";
+import { Link } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import { useNavigate } from "react-router-dom";
 
 export default function Tests() {
-  const items = [
-    { name: 'ПИРВА КАФИДРА' },
-    { name: 'ВТОРА КАФИДРА' },
-    { name: 'ТРЕТЯ КАФИДРА' },
-    { name: 'ЧЕТВЭРТА КАФИДРА' },
-    { name: 'ПЯТА КАФИДРА' },
-  ]
 
+  const [course, setCourse] = useState([
+    { value: 1, label: 1 },
+    { value: 2, label: 2 },
+    { value: 3, label: 3 },
+
+    { value: 4, label: 4 },
+    { value: 5, label: 5 },
+    { value: 6, label: 6 },
+
+
+
+  ])
+  const [department, setDepartment] = useState([])
+  const [departmentId, setDepartmentId] = useState()
+  const [courseId, setCourseId] = useState()
+  const [test, setTest] = useState([])
+
+
+
+
+  useEffect(() =>
+  (axios.get(API_URL + "/department/all").then(x => {
+
+    const departmentOptions = x.data.map(y => new Object({ value: y.name, label: 'Кафедра ' + y.name, id: y.id }))
+    setDepartment(departmentOptions)
+
+
+  }
+  )
+  ), [])
+  const history = useNavigate();
+
+  function Submit() {
+    api.post('/Tests/test', { departmentId, course: courseId }).then(() => history('/pisa')).catch(console.log(departmentId))
+
+
+
+  }
 
 
   const { setCurrentPage } = useContext(Context)
   useEffect(() => setCurrentPage('/tests'), [])
   return (
     <div>
+      <div className="HomeContainer__Header">
+        <div className='HomeContainer__Header__Text TestsHeader'>
 
-      <Downshift
-        onChange={selection => alert(`You selected ${selection.name}`)}
-        itemToString={item => (item ? item.name : '')}
-      >
-        {({
-          getInputProps,
-          getItemProps,
-          getLabelProps,
-          getMenuProps,
-          isOpen,
-          inputValue,
-          highlightedIndex,
-          selectedItem,
-        }) => (
-          <div>
+          <span>Тестирование</span>
 
-            <input placeholder="Кафедра" className="ApplicationContainer__Input" {...getInputProps()} />
-            <ul {...getMenuProps()}>
-              {isOpen
-                ? items
-                  .filter(item => !inputValue || item.name.includes(inputValue))
-                  .map((item, index) => (
-                    <li className="li"
-                      {...getItemProps({
-                        key: item.name,
-                        index,
-                        item,
-                        style: {
-                          backgroundColor:
+        </div>
+      </div>
+      <div className="TetstContainer" >
+        <div className="TetstContainer__Selections" >
+          <Select className='TetstContainer__CourseSelect' placeholder='Кафедра'
 
-                            highlightedIndex === index ? '#bbbfc9' : '#cad5f4',
+            onChange={e => setDepartmentId(e.id)}
 
-                          maxWidth: '550px',
-                          minHeight: '31px',
-                          display: 'flex',
-                          justifyContent: 'center',
-                          flexDirection: 'column',
-                          marginTop: '1px',
-                          position: 'absolute',
+            options={department}
+          />
+
+          <Select className='TetstContainer__CourseSelect' placeholder='Курс'
+
+            onChange={e => setCourseId(e.value)}
+
+            options={course}
+          />
+          <button className="TetstContainer__Submit" onClick={() => Submit()} > Пройти тестирование</button>
+
+        </div>
 
 
 
-                          borderRadius: '4px',
+      </div>
 
 
 
-
-
-
-
-
-
-                        },
-                      })}
-                    >
-                      {item.name}
-                    </li>
-                  ))
-                : null}
-            </ul>
-          </div>
-        )
-        }
-      </Downshift >
 
 
 

@@ -1,0 +1,158 @@
+.TestsHeader span{
+	font-size: 50px !important;
+}
+.TetstContainer{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	
+	justify-content: center;
+	align-items: center;
+}
+
+.TetstContainer__CourseSelect{
+	width: 180px;
+
+	
+
+}
+.TetstContainer__Selections{
+	width: 400px;
+	margin-top: 50px;
+	height: 200px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	
+}
+
+.TetstContainer__Submit{
+	width: 180px;
+	height: 40px;
+	background-color: #111111;
+	color: white;
+	border-radius: 4px;
+	box-shadow: 0px 4px 4px 0px #00000040;
+
+box-shadow: 0px 4px 4px 0px #00000040;
+
+ font-size: 15px;
+ font-weight: 300;
+
+
+}
+
+.TestContainer{
+	display: flex;
+	flex-direction: column;
+	max-width: 900px;
+	padding-top: 30px;
+	padding-left: 30px;
+
+}
+
+.TestContainer__Timer {
+	font-size: 18px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	color: #00000080;
+	font-weight: 400;
+
+}
+
+.TestContainer__QuestionContainer{
+	min-height: 90px;
+	background-color: #E1E6F4;
+	display: flex;
+	flex-direction: column;
+	border-radius: 4px;
+	margin-top: 20px;
+	padding: 10px;
+}
+
+.TestContainer__QuestionContainer__Number{
+	color: #00000080;
+	font-size: 14px;
+}
+
+.TestContainer__QuestionContainer__Question{
+	font-size: 14px;
+	margin-top: 15px;
+}
+
+.TestContainer__Answers__ResponseOptions label {
+	margin-right: 15px;
+	line-height: 32px;
+	font-size: 16px;
+	font-weight: 400;
+	color: #000000BF;
+  }
+  
+ .TestContainer__Answers__ResponseOptions input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	cursor: pointer;
+  
+	border-radius: 50%;
+	width: 16px;
+	height: 16px;
+  
+	border: 2px solid #999;
+	transition: 0.2s all linear;
+	margin-right: 5px;
+  
+	position: relative;
+	top: 4px;
+  }
+  
+  .TestContainer__Answers__ResponseOptions input:checked {
+	border: 6px solid black;
+	
+  }
+
+  .TestContainer__Answers__ResponseOptions{
+	margin-top: 20px;
+	padding-left: 30px;
+  }
+
+  .TestContainer__Answers__ResponseOptions div{
+	  margin-top: 15px;
+  }
+
+.TestContainer__NavigateButtons{
+	width: 50%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 100px;
+
+}
+
+.TestContainer__NavigateButtons button{
+	height: 40px;
+	width: 162px;
+	border-radius: 4px;
+	color:#00000099;
+	border: 2px solid #7A8AAB;
+	background-color: #F1F4F8;
+	font-size: 15px;
+}
+ 
+.SubmitButton{
+	float: right;
+	margin-right: 200px;
+	bottom:100px;
+	
+	font-size: 18px;
+	color: black;
+	font-weight: 300;
+	background:none;
+	
+
+}
+ 
+  

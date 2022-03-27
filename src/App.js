@@ -27,6 +27,8 @@ import api, { API_URL } from "./http";
 import AuthService from "./services/AuthService";
 import Profile from "./Pages/Profile";
 import { useLayoutEffect } from "react";
+import Test from "./Components/Test";
+import AdminPanel from "./Pages/AdminPanel";
 
 
 
@@ -43,14 +45,18 @@ function App() {
   const [userData, setUserData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [imgPath, setImgPath] = useState()
+  const [testActivated, setTestActivated] = useState(false)
+
 
   function isAuth(data) {
     setLoading(true)
     setAuth(true)
 
-    setUserData(data)
-    setImgPath(data.imgPath)
+    setUserData(data['userInfo'])
+    setImgPath(data['userInfo'].imgPath)
+    setTestActivated(data.isNowTesting)
     console.log(data)
+
 
 
 
@@ -61,10 +67,11 @@ function App() {
 
 
 
-  useLayoutEffect(() => api.get(API_URL + '/user/info').then(response => {
+  useLayoutEffect(async () => await api.get(API_URL + '/user/info').then(response => {
 
-    isAuth(response.data['userInfo'])
+    isAuth(response.data)
     setLoading(false)
+
 
 
   }
@@ -77,7 +84,7 @@ function App() {
   // ), [Auth])
 
   return (
-    <Context.Provider value={{ currentPage, setCurrentPage, store, userData, Auth, setAuth, setModalActive, loading, setLoading, modalActive, setUserData, imgPath, setImgPath }}>
+    <Context.Provider value={{ currentPage, setCurrentPage, store, userData, Auth, setAuth, setModalActive, loading, setLoading, modalActive, setUserData, imgPath, setImgPath, testActivated, setTestActivated }}>
       {userData != null ?
         <div className="App">
 
@@ -89,12 +96,14 @@ function App() {
               {currentPage == "*" ? null : <MenuBar currentPage={currentPage} active={modalActive} setActive={setModalActive} />}
               <div className={currentPage === '*' ? null : 'PageContainer'} >
                 <Routes>
+                  {userData.role == 0 ? <Route path='admin' element={<AdminPanel />} /> : null}
 
                   <Route path='/' element={<Home />} />
                   <Route path='/tdirection' element={<TDirection />} />
                   {Auth ?
                     <><Route path='/transfer' element={<Transfer />} />
-                      <Route path='/tests' element={<Tests />} />
+                      {userData.result === null ? <Route path={!testActivated ? '/tests' : null} element={<Tests />} /> : null}
+                      {userData.result === null ? <Route path='/test' element={<Test />} /> : null}
                       <Route path='/profile' element={<Profile />} /></> : null}
                   <Route path='/contacts' element={<Contacts />} />
                   <Route path='*' element={<NotFound />} />

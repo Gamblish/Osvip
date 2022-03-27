@@ -24,12 +24,13 @@ export default class Store {
 
 	}
 
-	async login(email, password, clear, setAuth, setUserData) {
+	async login(email, password, clear, setAuth, setUserData, setImgPath, setError) {
 		try {
 			const response = await AuthService.login(email, password);
 			console.log(response)
 			localStorage.setItem('access_token', response.data['access_token']);
 			setUserData(response.data['userInfo'])
+			setImgPath(response.data['userInfo'].imgPath)
 
 			this.user.id = (response.data['userInfo'].id)
 			this.user.email = (response.data['userInfo'].email)
@@ -39,9 +40,10 @@ export default class Store {
 
 			clear()
 			setAuth(true)
-		} catch (e) {
-			console.log(e.response?.data?.message)
+		} catch {
+			setError('Неправильный  Логин/пароль')
 		}
+
 	}
 	async registration(email, password, fcs, setModalActive,) {
 		try {

@@ -1,13 +1,14 @@
 .TransferContainer{
 	display: flex;
 	flex-direction: row;
+	overflow: hidden;
 
 }
 
 
 .ApplicationContainer{
 	max-width: 1620px;
-	padding-top: 40px;
+	padding-top: 35px;
 	padding-left: 40px;
 }
 
@@ -187,4 +188,12 @@ box-shadow: 0px 4px 4px 0px #00000040;
 	margin-top: 10px;
 	color: red;
 	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+.ApplicationContainer__Success{
+	margin-top: 10px;
+	color: green;
+	font-size: 16px;
+	margin-bottom: 10px;
 }
