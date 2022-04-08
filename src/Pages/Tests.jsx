@@ -44,7 +44,7 @@ export default function Tests() {
   const history = useNavigate();
 
   function Submit() {
-    api.post('/Tests/test', { departmentId, course: courseId }).then(() => history('/pisa')).catch(console.log(departmentId))
+    api.post('/Tests/test', { departmentId, course: courseId }).then(() => history('/test')).catch(console.log(departmentId))
 
 
 
