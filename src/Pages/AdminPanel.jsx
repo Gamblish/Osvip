@@ -187,7 +187,7 @@ export default function () {
 
 
 			</form>
-			<button className='ApplicationContainer__SubmitButton' onClick={() => departmentSubmit()}>АТПРАВИТЬ</button>
+			<button className='ApplicationContainer__SubmitButton' onClick={() => departmentSubmit()}>ОТПРАВИТЬ</button>
 			<br />
 			<br />
 			<div>ДОБАВЛЕНИЕ НАПРАВЛЕНИЯ</div>

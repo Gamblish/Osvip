@@ -29,6 +29,7 @@ import Profile from "./Pages/Profile";
 import { useLayoutEffect } from "react";
 import Test from "./Components/Test";
 import AdminPanel from "./Pages/AdminPanel";
+import TestPage from "./Components/TestPage";
 
 
 
@@ -41,7 +42,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState('/');
   const [modalActive, setModalActive] = useState(false)
   const [store, setStore] = useState(new Store())
-  const [Auth, setAuth] = useState(false)
+  const [Auth, setAuth] = useState(true)
   const [userData, setUserData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [imgPath, setImgPath] = useState()
@@ -67,7 +68,7 @@ function App() {
 
 
 
-  useLayoutEffect(async () => await api.get(API_URL + '/user/info').then(response => {
+  useEffect(async () => await api.get(API_URL + '/user/info').then(response => {
 
     isAuth(response.data)
     setLoading(false)
@@ -78,10 +79,6 @@ function App() {
 
 
   ).catch(() => setUserData('X')).finally(() => setLoading(false)), [])
-  //useLayoutEffect(() => api.get(API_URL + '/user/info').then(response =>
-  //response.status == 200 ?
-  //setUserData(response.data['userInfo']) : null
-  // ), [Auth])
 
   return (
     <Context.Provider value={{ currentPage, setCurrentPage, store, userData, Auth, setAuth, setModalActive, loading, setLoading, modalActive, setUserData, imgPath, setImgPath, testActivated, setTestActivated }}>
@@ -102,16 +99,18 @@ function App() {
                   <Route path='/tdirection' element={<TDirection />} />
                   {Auth ?
                     <><Route path='/transfer' element={<Transfer />} />
-                      {userData.result === null ? <Route path={!testActivated ? '/tests' : null} element={<Tests />} /> : null}
-                      {userData.result === null ? <Route path='/test' element={<Test />} /> : null}
+                      <Route path='/tests' element={<Tests />} />
+                      <Route path='/test' element={<Test />} />
                       <Route path='/profile' element={<Profile />} /></> : null}
                   <Route path='/contacts' element={<Contacts />} />
                   <Route path='*' element={<NotFound />} />
+                  <Route path='/a' element={<TestPage />} />
 
 
                 </Routes>
 
               </div>
+
 
             </Router>
           </div>

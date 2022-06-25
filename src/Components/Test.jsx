@@ -93,7 +93,7 @@ export default function Test() {
 				</div>
 				<div className='TestContainer__QuestionContainer'>
 					<span className='TestContainer__QuestionContainer__Number' >Вопрос №: {questionNumber + 1}.</span>
-					<span className='TestContainer__QuestionContainer__Question'>{tests != null ? tests.test.question[questionNumber].question : 'Загрузака...'}</span>
+					<span className='TestContainer__QuestionContainer__Question'>{tests != null ? tests.test.question[questionNumber].question : 'Загрузка...'}</span>
 
 
 				</div>
@@ -101,7 +101,7 @@ export default function Test() {
 				<div className='TestContainer__Answers'>
 					<div className='TestContainer__Answers__ResponseOptions'>
 
-						{tests != null ? tests.test.question[questionNumber].responses.map(x => <ResponseOption answerIds={answerIds} key={questionNumber + '' + x.id} saveAnswer={saveAnswer} response={x} />) : 'Загрузкаа...'}
+						{tests != null ? tests.test.question[questionNumber].responses.map(x => <ResponseOption answerIds={answerIds} key={questionNumber + '' + x.id} saveAnswer={saveAnswer} response={x} />) : 'Загрузка...'}
 
 
 					</div>
@@ -125,5 +125,3 @@ export default function Test() {
 		</div>
 	)
 }
-//{tests != null ? tests['test'].testResponses.map(x => <ResponseOption response={x.response} />) : 'Загрузкаа...'}
-//Math.floor((900 - time) / 60) + ':' + ((900 - time) % 60)

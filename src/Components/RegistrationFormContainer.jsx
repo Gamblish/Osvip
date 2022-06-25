@@ -16,7 +16,6 @@ export default function RegistrationFormContainer() {
 	const [formValid, setFormValid] = useState(false)
 	const [passwordEqualDirty, setPasswordEqualDirty] = useState(false)
 
-
 	useEffect(() =>
 
 		setFormValid(!(emailError || passwordError || !passwordEqual))
