@@ -93,7 +93,7 @@ function App() {
               {currentPage == "*" ? null : <MenuBar currentPage={currentPage} active={modalActive} setActive={setModalActive} />}
               <div className={currentPage === '*' ? null : 'PageContainer'} >
                 <Routes>
-                  {userData.role == 0 ? <Route path='admin' element={<AdminPanel />} /> : null}
+                  <Route path='admin' element={<AdminPanel />}/>
 
                   <Route path='/' element={<Home />} />
                   <Route path='/tdirection' element={<TDirection />} />

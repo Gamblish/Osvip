@@ -129,7 +129,7 @@ export default function Home(props) {
 			<div className="HomeContainer__Header">
 				<div className='HomeContainer__Header__Text ContactsText' >
 
-					<span>Восстановление и перевод студентов МАИ</span>
+					<span>Восстановление и перевод студентов ПГУТИ</span>
 
 				</div>
 			</div>
@@ -142,13 +142,13 @@ export default function Home(props) {
 						<div className='ApplicationContainer__TransferType'>
 
 							<div className='ApplicationContainer__TransferTypeChoice'>
-								<div><input type="radio" id="type1" onChange={() => setTransferType('Восстановление внутри МАИ')}
+								<div><input type="radio" id="type1" onChange={() => setTransferType('Восстановление внутри ПГУТИ')}
 									name="type" value='recoveryInside' />
-									<label for="contactChoice1" >    Восстановление внутри МАИ</label></div>
+									<label for="contactChoice1" >    Восстановление внутри ПГУТИ</label></div>
 
 								<div><input type="radio" id="type2"
-									name="type" value="transferInside" onChange={() => setTransferType('Перевод внутри МАИ')} />
-									<label for="contactChoice2" >  Перевод внутри МАИ</label></div>
+									name="type" value="transferInside" onChange={() => setTransferType('Перевод внутри ПГУТИ')} />
+									<label for="contactChoice2" >  Перевод внутри ПГУТИ</label></div>
 
 								<div><input type="radio" id="type3"
 									name="type" value="fromAnother" onChange={() => setTransferType('Перевод из другого ВУЗа')} />
@@ -340,7 +340,7 @@ export default function Home(props) {
 					<a href={SOURCE_URL + '/Source/TransferExample.pdf'} target='_blank' ><span>Образец заявления на восстановление/
 
 						<br />
-						перевод внутри МАИ</span></a>
+						перевод внутри ПГУТИ</span></a>
 
 					<a href={SOURCE_URL + '/Source/TransferExample.pdf'} target='_blank'><span>Образец заявления на
 						<br />

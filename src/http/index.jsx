@@ -2,8 +2,8 @@ import axios from "axios";
 
 import Cookies from "universal-cookie";
 
-export const API_URL = 'http://172.20.10.9:7239/api'
-export const SOURCE_URL = 'http://172.20.10.9:7239'
+export const API_URL = 'https://osvip.bsite.net//api'
+export const SOURCE_URL = 'https://osvip.bsite.net/:5000'
 
 const cookies = new Cookies();
 

@@ -25,7 +25,7 @@ export default function Transfer(props) {
 			<div className="HomeContainer__Header">
 				<div className='HomeContainer__Header__Text'>
 
-					<span>Перевод и восстановление студентов МАИ
+					<span>Перевод и восстановление студентов ПГУТИ
 						<br />
 
 						Институт № 3 «Системы управления, информатика и электроэнергетика»</span>
